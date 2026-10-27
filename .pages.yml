@@ -69,12 +69,28 @@ content:
         type: object
         list: true
         fields:
+          - { name: slug, label: Page address (/work/<slug>/), type: string }
           - { name: title, label: Title, type: string }
           - { name: meta, label: Company and period, type: string }
+          - { name: role, label: My role, type: string }
+          - { name: areas, label: Areas (filters on /work/), type: string, list: true }
+          - { name: featured, label: Show on the home page, type: boolean }
           - { name: text, label: Overview, type: text }
           - { name: points, label: What I did, type: text, list: true }
+          - { name: approach, label: How it was checked (optional), type: text }
           - { name: tags, label: Tags, type: string, list: true }
           - { name: link, label: Link (optional), type: string }
+      - name: standards
+        label: Repo standards (projects page)
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Description, type: text }
+      - name: marquee
+        label: Scrolling stack strip (home)
+        type: string
+        list: true
       - name: roles
         label: Experience
         type: object

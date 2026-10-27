@@ -8,13 +8,14 @@ their own repos and are served next to this site, for example
 ## How it is built
 
 Plain HTML, CSS and a little JavaScript, no framework and no npm install. All text lives in
-`src/data/content.json`; `scripts/build.py` fills `src/template.html` with it and writes `dist/`.
+`src/data/content.json`; `scripts/build.py` fills the templates in `src/pages/` with it and writes `dist/`:
+`/`, `/work/`, `/work/<slug>/`, `/projects/`, `/about/` and `404.html`.
 
 ```
-src/data/content.json   every word on the page: profile, projects, case studies, roles
-src/template.html       page structure
+src/data/content.json   every word on the site: profile, projects, case studies, roles
+src/pages/              layout.html wraps home, work, case (one per case study), projects, about, 404
 src/site.css            layout and theme (desktop, tablet, phone)
-src/site.js             menu, scroll reveal, hero parallax; the page works without it
+src/site.js             menu, reveals, counters, filters, parallax; pages work without it
 public/                 copied as is: portrait, CMS page
 scripts/build.py        content + template -> dist/ (Python standard library only)
 ```

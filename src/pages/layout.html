@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070709">
+<title>{{page_title}}</title>
+<meta name="description" content="{{page_description}}">
+<meta property="og:title" content="{{page_title}}">
+<meta property="og:description" content="{{page_description}}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/assets/yogesh-suit-cutout.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css?v={{version}}">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="page-{{page}}">
+<a class="skip" href="#main">Skip to content</a>
+
+<nav id="nav">
+  <a class="mark" href="/" aria-label="{{name}}, home">YA<span>.</span></a>
+  <div class="navlinks" id="navlinks">
+    <a href="/work/" data-page="work">Work</a>
+    <a href="/projects/" data-page="projects">Projects</a>
+    <a href="/about/" data-page="about">About</a>
+    <a href="#contact">Contact</a>
+    <a class="pill" href="mailto:{{email}}?subject=R%C3%A9sum%C3%A9%20request">Request résumé {{i:arrow}}</a>
+  </div>
+  <button class="menu" id="menu" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">{{i:menu}}</button>
+</nav>
+
+<main id="main">
+{{body}}
+</main>
+
+<section id="contact" class="contact">
+  <span class="tag reveal">Let's connect</span>
+  <h2 class="reveal">Have a hard problem?<br><span>Let's make it simple.</span></h2>
+  <a class="email reveal" href="mailto:{{email}}">{{email}} {{i:arrow}}</a>
+  <div class="socials reveal">
+    <a href="{{linkedin}}" target="_blank" rel="noopener">{{i:linkedin}} LinkedIn</a>
+    <a href="{{github}}" target="_blank" rel="noopener">{{i:github}} GitHub</a>
+    <a href="{{medium}}" target="_blank" rel="noopener">{{i:pen}} Medium</a>
+    <a href="{{twitter}}" target="_blank" rel="noopener">{{i:arrow}} X / Twitter</a>
+  </div>
+</section>
+
+<footer>
+  <a class="mark" href="/">YA<span>.</span></a>
+  <div class="footlinks"><a href="/work/">Work</a><a href="/projects/">Projects</a><a href="/about/">About</a></div>
+  <span>© {{year}} {{name_upper}}</span>
+</footer>
+
+<script src="/site.js?v={{version}}" defer></script>
+</body>
+</html>
