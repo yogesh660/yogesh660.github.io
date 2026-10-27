@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070709">
+<title>{{name}} · {{title}}</title>
+<meta name="description" content="{{name}}, {{title}}. {{summary}}">
+<meta property="og:title" content="{{name}} · {{title}}">
+<meta property="og:description" content="{{summary}}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/yogesh-suit-cutout.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/yogesh-suit-cutout.webp">
+<link rel="stylesheet" href="site.css?v={{version}}">
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+
+<nav id="nav">
+  <a class="mark" href="#top" aria-label="Back to top">YA<span>.</span></a>
+  <div class="navlinks" id="navlinks">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+    <a class="pill" href="mailto:{{email}}?subject=R%C3%A9sum%C3%A9%20request">Request résumé {{i:arrow}}</a>
+  </div>
+  <button class="menu" id="menu" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">{{i:menu}}</button>
+</nav>
+
+<main id="main">
+<header class="hero">
+  <div class="hero-stage" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <div class="hero-card hero-intro">
+    <p class="availability"><i></i>{{availability}}</p>
+    <p class="kicker">Hello, I am Yogesh</p>
+    <h1>Senior Data<br><span>Scientist.</span></h1>
+    <p class="focus">{{focus}}</p>
+    <div class="actions">
+      <a class="button light" href="#projects">See projects {{i:down}}</a>
+      <a class="button ghost" href="#experience">Experience</a>
+    </div>
+  </div>
+
+  <figure class="hero-portrait">
+    <div class="hero-name" aria-hidden="true">YOGESH<br>AWATE</div>
+    <img src="assets/yogesh-suit-cutout.webp" width="600" height="900" alt="Portrait of {{name}}" fetchpriority="high">
+  </figure>
+
+  <aside class="hero-card hero-side">
+    <small>What I do</small>
+    <p>{{summary}}</p>
+    <a class="side-cta" href="mailto:{{email}}">{{i:mail}} Let's work together {{i:arrow}}</a>
+    <div class="quick-links">
+      <a href="{{linkedin}}" target="_blank" rel="noopener">LinkedIn {{i:arrow}}</a>
+      <a href="{{github}}" target="_blank" rel="noopener">GitHub {{i:arrow}}</a>
+      <a href="{{medium}}" target="_blank" rel="noopener">Medium {{i:arrow}}</a>
+    </div>
+    <span class="where">{{location}} · open to conversations</span>
+  </aside>
+</header>
+
+<section id="about" class="section about">
+  <span class="tag reveal">01 / About</span>
+  <div class="about-grid">
+    <div class="reveal">
+      <h2>Curious by nature.<br>Rigorous by practice.</h2>
+    </div>
+    <div class="reveal">
+      <p class="big">{{about_lead}}</p>
+      {{about_body}}
+      <div class="stats">{{stats}}</div>
+    </div>
+  </div>
+</section>
+
+<section id="capabilities" class="section band">
+  <div class="inner">
+    <div class="head reveal">
+      <div><span class="tag">02 / Capabilities</span><h2>What I bring.</h2></div>
+      <p>Models are the easy part. Making them dependable is the job.</p>
+    </div>
+    <div class="caps">{{capabilities}}</div>
+    <div class="toolbox reveal">{{skills}}</div>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <div class="head reveal">
+    <div><span class="tag">03 / Projects</span><h2>Built in the open.</h2></div>
+    <p>Open-source systems I am building end to end: code, tests, evals, CI and a write-up for each.</p>
+  </div>
+  <div class="featured">{{featured}}</div>
+  <h3 class="subhead reveal">On the roadmap</h3>
+  <div class="planned">{{planned}}</div>
+</section>
+
+<section id="work" class="section band">
+  <div class="inner">
+    <div class="head reveal">
+      <div><span class="tag">04 / Selected work</span><h2>Built for impact.</h2></div>
+      <p>Nine problems from industry and research: what was asked, what I built, and how it was checked.</p>
+    </div>
+    <div class="work">{{work}}</div>
+  </div>
+</section>
+
+<section id="experience" class="section">
+  <div class="head reveal">
+    <div><span class="tag">05 / Experience</span><h2>The journey so far.</h2></div>
+  </div>
+  <ol class="timeline">{{roles}}</ol>
+  <h3 class="subhead reveal">Education and certificates</h3>
+  <ul class="edu">{{education}}</ul>
+  <a class="underline reveal" href="mailto:{{email}}?subject=R%C3%A9sum%C3%A9%20request">{{i:download}} Request full résumé</a>
+</section>
+
+<section class="section play">
+  <div class="play-card reveal">
+    <div>
+      <span class="tag">Off the clock</span>
+      <h2>Serious about data.<br><em>Playful about life.</em></h2>
+      <p>Great games reward curiosity, iteration and systems thinking. So does great data science.</p>
+    </div>
+    <div class="pad" aria-hidden="true">{{i:gamepad}}</div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <span class="tag reveal">06 / Let's connect</span>
+  <h2 class="reveal">Have a hard problem?<br><span>Let's make it simple.</span></h2>
+  <a class="email reveal" href="mailto:{{email}}">{{email}} {{i:arrow}}</a>
+  <div class="socials reveal">
+    <a href="{{linkedin}}" target="_blank" rel="noopener">{{i:linkedin}} LinkedIn</a>
+    <a href="{{github}}" target="_blank" rel="noopener">{{i:github}} GitHub</a>
+    <a href="{{medium}}" target="_blank" rel="noopener">{{i:pen}} Medium</a>
+    <a href="{{twitter}}" target="_blank" rel="noopener">{{i:arrow}} X / Twitter</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <a class="mark" href="#top">YA<span>.</span></a>
+  <p>Designed around data, built with intent.</p>
+  <span>© {{year}} {{name_upper}}</span>
+</footer>
+
+<script src="site.js?v={{version}}" defer></script>
+</body>
+</html>
