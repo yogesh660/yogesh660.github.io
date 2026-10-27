@@ -24,6 +24,7 @@ content:
           - { name: eyebrow, label: Category, type: string }
           - { name: title, label: Project title, type: string }
           - { name: text, label: Description, type: text }
+          - { name: link, label: Case study link (optional), type: string }
       - name: roles
         label: Experience
         type: object
