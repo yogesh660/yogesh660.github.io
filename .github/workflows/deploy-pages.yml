@@ -1,8 +1,9 @@
 name: Deploy portfolio to GitHub Pages
 
+# Branches get a build check; main also deploys.
 on:
   push:
-    branches: ['main']
+    branches: [main, "feature/**", "fix/**"]
   workflow_dispatch:
 
 permissions:
@@ -11,36 +12,34 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
       - name: Build
-        run: pnpm run build
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
+        # plain HTML/CSS/JS filled from src/data/content.json; standard library only
+        run: python3 scripts/build.py
       - name: Upload site
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

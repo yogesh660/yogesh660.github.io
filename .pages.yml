@@ -8,23 +8,73 @@ content:
     type: file
     path: src/data/content.json
     fields:
+      - name: profile
+        label: Profile
+        type: object
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: focus, label: Focus line under the title, type: string }
+          - { name: summary, label: What I do, type: text }
+          - { name: availability, label: Availability badge, type: string }
+          - { name: email, label: Email, type: string }
+          - { name: location, label: Location, type: string }
+          - { name: linkedin, label: LinkedIn URL, type: string }
+          - { name: github, label: GitHub URL, type: string }
+          - { name: medium, label: Medium URL, type: string }
+          - { name: twitter, label: X / Twitter URL, type: string }
+      - name: about
+        label: About
+        type: object
+        fields:
+          - { name: lead, label: Lead sentence, type: text }
+          - { name: body, label: Paragraphs, type: text, list: true }
+      - name: stats
+        label: Numbers
+        type: object
+        list: true
+        fields:
+          - { name: value, label: Value, type: string }
+          - { name: label, label: Label, type: string }
       - name: capabilities
         label: Capabilities
         type: object
         list: true
         fields:
-          - { name: icon, label: Icon key, type: select, options: [forecasting, ml, cloud, leadership] }
+          - { name: icon, label: Icon, type: select, options: [forecasting, ml, cloud, leadership] }
           - { name: title, label: Title, type: string }
           - { name: text, label: Description, type: text }
-      - name: work
-        label: Featured work
+      - name: skills
+        label: Toolbox
         type: object
         list: true
         fields:
+          - { name: group, label: Group, type: string }
+          - { name: items, label: Skills, type: string, list: true }
+      - name: projects
+        label: Open-source projects
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Repo name, type: string }
           - { name: eyebrow, label: Category, type: string }
-          - { name: title, label: Project title, type: string }
           - { name: text, label: Description, type: text }
-          - { name: link, label: Case study link (optional), type: string }
+          - { name: status, label: Status, type: select, options: [Live, In progress, Planned] }
+          - { name: stack, label: Stack, type: string, list: true }
+          - { name: case_study, label: Case study path (e.g. /shelf-vlm/), type: string }
+          - { name: image, label: Preview image path, type: string }
+          - { name: repo, label: GitHub URL, type: string }
+      - name: work
+        label: Selected work (case studies)
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: meta, label: Company and period, type: string }
+          - { name: text, label: Overview, type: text }
+          - { name: points, label: What I did, type: text, list: true }
+          - { name: tags, label: Tags, type: string, list: true }
+          - { name: link, label: Link (optional), type: string }
       - name: roles
         label: Experience
         type: object
@@ -34,7 +84,12 @@ content:
           - { name: role, label: Role, type: string }
           - { name: company, label: Company, type: string }
           - { name: copy, label: Description, type: text }
-          - name: tags
-            label: Skills
-            type: string
-            list: true
+          - { name: tags, label: Skills, type: string, list: true }
+      - name: education
+        label: Education and certificates
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Degree or certificate, type: string }
+          - { name: where, label: Institution, type: string }
+          - { name: year, label: Year, type: string }
