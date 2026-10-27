@@ -20,22 +20,102 @@
     ]
   },
   "stats": [
-    { "value": "9+", "label": "Years in applied ML, since 2017" },
-    { "value": "7", "label": "People led on the Unilever programme" },
-    { "value": "9", "label": "Case studies from industry below" }
+    {
+      "value": "9+",
+      "label": "Years in applied ML, since 2017"
+    },
+    {
+      "value": "7",
+      "label": "People led on the Unilever programme"
+    },
+    {
+      "value": "9",
+      "label": "Case studies from industry and research"
+    }
   ],
   "capabilities": [
-    { "icon": "forecasting", "title": "Forecasting systems", "text": "Price, demand, elasticity and cannibalization models, with post-processing guardrails and validation built for real business decisions." },
-    { "icon": "ml", "title": "LLMs, RAG and agents", "text": "Retrieval-augmented assistants on enterprise data, tool-using agents and vision-language models, measured by evals rather than demos." },
-    { "icon": "cloud", "title": "Cloud and MLOps", "text": "Databricks, PySpark, Azure, Airflow and MLflow, with test benches and CI that keep pipelines honest." },
-    { "icon": "leadership", "title": "Technical leadership", "text": "Team leadership, client requirements, multi-country rollouts and hands-on delivery, end to end." }
+    {
+      "icon": "forecasting",
+      "title": "Forecasting systems",
+      "text": "Price, demand, elasticity and cannibalization models, with post-processing guardrails and validation built for real business decisions."
+    },
+    {
+      "icon": "ml",
+      "title": "LLMs, RAG and agents",
+      "text": "Retrieval-augmented assistants on enterprise data, tool-using agents and vision-language models, measured by evals rather than demos."
+    },
+    {
+      "icon": "cloud",
+      "title": "Cloud and MLOps",
+      "text": "Databricks, PySpark, Azure, Airflow and MLflow, with test benches and CI that keep pipelines honest."
+    },
+    {
+      "icon": "leadership",
+      "title": "Technical leadership",
+      "text": "Team leadership, client requirements, multi-country rollouts and hands-on delivery, end to end."
+    }
   ],
   "skills": [
-    { "group": "Modelling", "items": ["Forecasting", "Price elasticity", "Demand", "Cannibalization", "XGBoost", "LightGBM", "Classification"] },
-    { "group": "GenAI and NLP", "items": ["LangChain", "LangGraph", "RAG", "Azure Cognitive Search", "OCR", "NER", "RASA"] },
-    { "group": "Computer vision", "items": ["CNN", "ResNet", "YOLO", "FaceNet", "Mask R-CNN", "Segmentation"] },
-    { "group": "Engineering and cloud", "items": ["Python", "SQL", "PySpark", "Scala", "Databricks", "Azure", "AWS", "Docker", "Flask"] },
-    { "group": "Quality and tracking", "items": ["Test benches", "Guardrails", "Ground-truth creation", "Evals", "MLflow", "GitHub Actions"] }
+    {
+      "group": "Modelling",
+      "items": [
+        "Forecasting",
+        "Price elasticity",
+        "Demand",
+        "Cannibalization",
+        "XGBoost",
+        "LightGBM",
+        "Classification"
+      ]
+    },
+    {
+      "group": "GenAI and NLP",
+      "items": [
+        "LangChain",
+        "LangGraph",
+        "RAG",
+        "Azure Cognitive Search",
+        "OCR",
+        "NER",
+        "RASA"
+      ]
+    },
+    {
+      "group": "Computer vision",
+      "items": [
+        "CNN",
+        "ResNet",
+        "YOLO",
+        "FaceNet",
+        "Mask R-CNN",
+        "Segmentation"
+      ]
+    },
+    {
+      "group": "Engineering and cloud",
+      "items": [
+        "Python",
+        "SQL",
+        "PySpark",
+        "Scala",
+        "Databricks",
+        "Azure",
+        "AWS",
+        "Docker",
+        "Flask"
+      ]
+    },
+    {
+      "group": "Quality and tracking",
+      "items": [
+        "Test benches",
+        "Guardrails",
+        "Ground-truth creation",
+        "Evals",
+        "MLflow",
+        "GitHub Actions"
+      ]
+    }
   ],
   "projects": [
     {
@@ -43,7 +123,13 @@
       "eyebrow": "AGENTS · LANGGRAPH",
       "text": "A used-car marketplace assistant that answers only through tools over the listings data, so it cannot invent cars or prices. Every change is scored by an eval suite in CI and blocked if quality drops.",
       "status": "Live",
-      "stack": ["LangGraph", "pydantic", "MLflow", "Ollama", "GitHub Actions"],
+      "stack": [
+        "LangGraph",
+        "pydantic",
+        "MLflow",
+        "Ollama",
+        "GitHub Actions"
+      ],
       "case_study": "/car-agent-harness/",
       "image": "/car-agent-harness/img/architecture-wide.svg",
       "repo": "https://github.com/yogesh660/car-agent-harness"
@@ -53,7 +139,13 @@
       "eyebrow": "VISION-LANGUAGE · RETAIL",
       "text": "Shelf photo in, retail-audit report out: facings per shelf, empty slots, share of shelf and planogram compliance, as JSON a downstream system can trust.",
       "status": "Live",
-      "stack": ["Qwen3-VL", "RT-DETR", "TRL + LoRA", "vLLM", "pydantic"],
+      "stack": [
+        "Qwen3-VL",
+        "RT-DETR",
+        "TRL + LoRA",
+        "vLLM",
+        "pydantic"
+      ],
       "case_study": "/shelf-vlm/",
       "image": "/shelf-vlm/img/architecture-wide.svg",
       "repo": "https://github.com/yogesh660/shelf-vlm"
@@ -63,7 +155,13 @@
       "eyebrow": "POST-TRAINING",
       "text": "A small open model taken through SFT, DPO and GRPO, with every stage measured and all three compared side by side in a chat arena.",
       "status": "Planned",
-      "stack": ["TRL", "Unsloth", "vLLM", "lm-eval-harness", "MLflow"],
+      "stack": [
+        "TRL",
+        "Unsloth",
+        "vLLM",
+        "lm-eval-harness",
+        "MLflow"
+      ],
       "repo": "https://github.com/yogesh660/align-lab"
     },
     {
@@ -71,7 +169,13 @@
       "eyebrow": "MULTIMODAL RAG",
       "text": "Questions over annual reports full of tables and charts. Retrieval searches page images instead of OCR text, and answers point to the exact page.",
       "status": "Planned",
-      "stack": ["ColQwen", "Qdrant", "Qwen3-VL", "Docling", "Gradio"],
+      "stack": [
+        "ColQwen",
+        "Qdrant",
+        "Qwen3-VL",
+        "Docling",
+        "Gradio"
+      ],
       "repo": "https://github.com/yogesh660/visual-doc-rag"
     },
     {
@@ -79,7 +183,13 @@
       "eyebrow": "LLM SERVING",
       "text": "How fast and how cheap can an open LLM be served? Quantisation, speculative decoding, caching and llm-d routing on Kubernetes, with cost per million tokens for each setup.",
       "status": "Planned",
-      "stack": ["vLLM", "llm-d", "Kubernetes", "KEDA", "Grafana"],
+      "stack": [
+        "vLLM",
+        "llm-d",
+        "Kubernetes",
+        "KEDA",
+        "Grafana"
+      ],
       "repo": "https://github.com/yogesh660/llm-serving-bench"
     },
     {
@@ -87,14 +197,26 @@
       "eyebrow": "FORECASTING · MLOPS",
       "text": "Weekly retail demand forecasting run by Airflow: retrain, compare challenger against champion, promote only if better, and publish a dashboard with a written summary.",
       "status": "Planned",
-      "stack": ["Airflow 3", "LightGBM", "Chronos", "TimesFM", "MLflow"],
+      "stack": [
+        "Airflow 3",
+        "LightGBM",
+        "Chronos",
+        "TimesFM",
+        "MLflow"
+      ],
       "repo": "https://github.com/yogesh660/demand-forecast-pipeline"
     }
   ],
   "work": [
     {
+      "slug": "forecast-at-scale",
       "title": "Forecast at scale: price forecasting with validation gates",
       "meta": "NielsenIQ · 2025 - now",
+      "role": "Senior Data Scientist",
+      "areas": [
+        "Forecasting"
+      ],
+      "featured": true,
       "text": "Forecasts that feed client decisions across many product categories. A wrong forecast costs more than a slow one, so the work was as much about catching bad output as producing good output.",
       "points": [
         "Introduced ML models for price forecasting, and a traffic-light system that classifies product performance so business users can act faster.",
@@ -102,22 +224,46 @@
         "Integrated MLflow for experiment tracking and model management; added logging for faster root-cause analysis.",
         "Replaced legacy engines and the licensed NAG library with scalable Python and PySpark."
       ],
-      "tags": ["PySpark", "Databricks", "Azure", "MLflow", "Guardrails"]
+      "approach": "Every run is checked by the test bench and the guardrails, and every experiment is recorded in MLflow, so a model change can be compared and explained rather than argued about.",
+      "tags": [
+        "PySpark",
+        "Databricks",
+        "Azure",
+        "MLflow",
+        "Guardrails"
+      ]
     },
     {
+      "slug": "trade-area-model",
       "title": "Trade Area Model: legacy C++ to modular Python",
       "meta": "NielsenIQ · 2025 - now",
+      "role": "Senior Data Scientist",
+      "areas": [
+        "Forecasting",
+        "Engineering"
+      ],
       "text": "A production model on a legacy C++ codebase that was hard to maintain and extend. The task: move it to Python without losing what it did well, and make its outputs easier to interpret.",
       "points": [
         "Led the migration from C++ to Python, improving maintainability and scalability.",
         "Designed coefficient-extraction models that make results interpretable for downstream analytics.",
         "Contributed to a modular modelling framework that new models can plug into."
       ],
-      "tags": ["Legacy migration", "Python", "Interpretability", "Databricks"]
+      "tags": [
+        "Legacy migration",
+        "Python",
+        "Interpretability",
+        "Databricks"
+      ]
     },
     {
+      "slug": "trade-promotion-analytics",
       "title": "Trade promotion analytics: multi-country rollout",
       "meta": "Saama Technologies · Unilever · 2022 - 2025",
+      "role": "Data Scientist · Team Lead",
+      "areas": [
+        "Forecasting"
+      ],
+      "featured": true,
       "text": "Unilever needed to know which promotions actually work. The platform estimates demand, price elasticity and cannibalization from sales data, adapted to each country's market and data.",
       "points": [
         "Led a team of seven and was the main technical contact for client stakeholders.",
@@ -125,88 +271,286 @@
         "Rolled out country by country, with per-country features and parameters tracked in MLflow.",
         "Wrote validation and sanity checks for input sales data and every model's output."
       ],
-      "tags": ["Team of 7", "Client-facing", "PySpark", "Scala", "Azure", "MLflow"]
+      "approach": "Every country release passed input-data checks and output sanity checks before it reached the client, and elasticity coefficients were tracked in MLflow so changes between runs could be explained.",
+      "tags": [
+        "Team of 7",
+        "Client-facing",
+        "PySpark",
+        "Scala",
+        "Azure",
+        "MLflow"
+      ]
     },
     {
+      "slug": "llm-rag-assistant",
       "title": "LLM / RAG data assistant",
       "meta": "Saama Technologies · Unilever · 2022 - 2025",
+      "role": "Data Scientist · Team Lead",
+      "areas": [
+        "GenAI"
+      ],
+      "featured": true,
       "text": "Trade promotion users needed answers from a large body of internal data without waiting on an analyst: a conversational assistant grounded in their own data.",
       "points": [
         "Built the assistant on LangChain with ChatGPT, answering data questions in natural language.",
         "Indexed internal data in Azure Cognitive Search and wired retrieval into the chain.",
         "Deployed it as a web app next to the users' existing workflow."
       ],
-      "tags": ["LLM", "LangChain", "RAG", "Azure Cognitive Search"]
+      "approach": "Started from the questions users asked again and again, grounded every answer in retrieved internal content rather than the model's own knowledge, and shipped it where users already worked.",
+      "tags": [
+        "LLM",
+        "LangChain",
+        "RAG",
+        "Azure Cognitive Search"
+      ]
     },
     {
+      "slug": "vision-apis",
       "title": "Computer vision APIs for a product platform",
       "meta": "IVL Global · 2020 - 2022",
+      "role": "Data Scientist (L2)",
+      "areas": [
+        "Vision"
+      ],
       "text": "A product platform needed recognition and insight services its team could call directly, plus dashboards over the data they produced.",
       "points": [
         "Built face recognition (FaceNet), place recognition, and bike-accessory detection with brand identification (YOLO).",
         "Built NER-based NLP services, all served through Flask on AWS.",
         "Delivered Power BI reporting that harmonised Salesforce, PeopleSoft and spreadsheet sources."
       ],
-      "tags": ["YOLO", "FaceNet", "NER", "Flask", "AWS", "Power BI"]
+      "tags": [
+        "YOLO",
+        "FaceNet",
+        "NER",
+        "Flask",
+        "AWS",
+        "Power BI"
+      ]
     },
     {
+      "slug": "document-extraction",
       "title": "Document information extraction",
       "meta": "Abhay Tech Solutions · 2019 - 2020",
+      "role": "Data Scientist",
+      "areas": [
+        "Documents"
+      ],
       "text": "Turn scanned invoices, bills and balance sheets into structured fields that downstream systems can consume without manual data entry.",
       "points": [
         "Built one extraction model per document type, each trained on its own labelled dataset.",
         "Created the ground truth: entities and intents defined per document family.",
         "Built the OCR stage, trained RASA NLU entity models and served JSON output for client integration."
       ],
-      "tags": ["OCR", "NER", "RASA", "Custom datasets"]
+      "approach": "One model per document family instead of one generic model, so each could be tuned and checked against its own labelled dataset.",
+      "tags": [
+        "OCR",
+        "NER",
+        "RASA",
+        "Custom datasets"
+      ]
     },
     {
+      "slug": "resume-parser",
       "title": "Deep-learning resume parser",
       "meta": "Abhay Tech Solutions · 2019 - 2020",
+      "role": "Data Scientist",
+      "areas": [
+        "Documents"
+      ],
       "text": "Resumes arrive in every layout imaginable. The goal: reliably pull personal details, work history and education out of them as structured entities.",
       "points": [
         "Two stages: a segmentation model splits the document into sections, then three dedicated entity models.",
         "Built a dataset per model and trained the LSTM entity models; a test bench checked every dataset before training.",
         "Served through a Flask API with JSON output."
       ],
-      "tags": ["LSTM", "NER", "OCR", "Test bench", "Flask"]
+      "approach": "Splitting the problem, segment first and then extract per section, let each model specialise; the test bench caught dataset problems before they became model problems.",
+      "tags": [
+        "LSTM",
+        "NER",
+        "OCR",
+        "Test bench",
+        "Flask"
+      ]
     },
     {
+      "slug": "multispectral-segmentation",
       "title": "Multispectral imagery: segmentation from scratch",
       "meta": "Indian Institute of Science · 2017 - 2018",
+      "role": "Research Intern",
+      "areas": [
+        "Vision"
+      ],
       "text": "Vegetation analysis from satellite and drone imagery, where no labelled dataset existed to train on.",
       "points": [
         "Stitched UAV multispectral imagery and annotated it to build the ground truth.",
         "Created a 5-class dataset from ISRO satellite images and built a custom segmentation model.",
         "Benchmarked VGG16, ResNet and SharpMask against it."
       ],
-      "tags": ["Dataset creation", "Segmentation", "Pix4D", "QGIS"]
+      "tags": [
+        "Dataset creation",
+        "Segmentation",
+        "Pix4D",
+        "QGIS"
+      ]
     },
     {
+      "slug": "sound-detection",
       "title": "Sudden-sound detection service",
       "meta": "Independent project",
+      "role": "Independent project",
+      "areas": [
+        "Engineering"
+      ],
       "text": "Detect sudden loud events such as gunshots in audio or video, exposed as a service another system can call with a media URL.",
       "points": [
         "Relabelled UrbanSound8K (8,732 clips) for binary classification.",
         "Trained a CNN on MFCC features in TensorFlow.",
         "Wrapped it in a Flask API and packaged it as a Docker image."
       ],
-      "tags": ["TensorFlow", "CNN", "Librosa", "Docker"],
+      "tags": [
+        "TensorFlow",
+        "CNN",
+        "Librosa",
+        "Docker"
+      ],
       "link": "https://github.com/yogesh660/Binary-classification-of-audio"
     }
   ],
   "roles": [
-    { "period": "2025 - now", "role": "Senior Data Scientist", "company": "NielsenIQ · Pune", "copy": "Price forecasting at scale, the Trade Area Model migration from C++ to Python, test benches, guardrails and MLflow on Databricks.", "tags": ["Forecasting", "Databricks", "PySpark", "MLflow"] },
-    { "period": "2022 - 2025", "role": "Data Scientist · Team Lead", "company": "Saama Technologies · Pune", "copy": "Led a team of seven delivering trade promotion analytics for Unilever across countries, plus an LLM-powered data assistant.", "tags": ["Team lead", "LLMs", "Azure", "Unilever"] },
-    { "period": "2020 - 2022", "role": "Data Scientist (L2)", "company": "IVL Global · Pune", "copy": "Computer-vision and NLP APIs on AWS, Power BI reporting and web-scraping pipelines.", "tags": ["Computer vision", "NLP", "AWS", "Power BI"] },
-    { "period": "2019 - 2020", "role": "Data Scientist", "company": "Abhay Tech Solutions · Pune", "copy": "Document information extraction and a deep-learning resume parser, from OCR to served JSON.", "tags": ["OCR", "NER", "RASA", "LSTM"] },
-    { "period": "2019", "role": "Data Science and AI Researcher", "company": "Fabelizer · Pune", "copy": "Speech-to-text datasets in several languages, DeepSpeech and Tacotron training, Mask R-CNN and a RASA chatbot.", "tags": ["Speech", "Mask R-CNN", "RASA"] },
-    { "period": "2017 - 2018", "role": "Research Intern", "company": "Indian Institute of Science · Bengaluru", "copy": "Multispectral UAV and satellite imagery, ground truth from scratch, custom semantic segmentation.", "tags": ["Deep learning", "Segmentation", "Research"] }
+    {
+      "period": "2025 - now",
+      "role": "Senior Data Scientist",
+      "company": "NielsenIQ · Pune",
+      "copy": "Price forecasting at scale, the Trade Area Model migration from C++ to Python, test benches, guardrails and MLflow on Databricks.",
+      "tags": [
+        "Forecasting",
+        "Databricks",
+        "PySpark",
+        "MLflow"
+      ]
+    },
+    {
+      "period": "2022 - 2025",
+      "role": "Data Scientist · Team Lead",
+      "company": "Saama Technologies · Pune",
+      "copy": "Led a team of seven delivering trade promotion analytics for Unilever across countries, plus an LLM-powered data assistant.",
+      "tags": [
+        "Team lead",
+        "LLMs",
+        "Azure",
+        "Unilever"
+      ]
+    },
+    {
+      "period": "2020 - 2022",
+      "role": "Data Scientist (L2)",
+      "company": "IVL Global · Pune",
+      "copy": "Computer-vision and NLP APIs on AWS, Power BI reporting and web-scraping pipelines.",
+      "tags": [
+        "Computer vision",
+        "NLP",
+        "AWS",
+        "Power BI"
+      ]
+    },
+    {
+      "period": "2019 - 2020",
+      "role": "Data Scientist",
+      "company": "Abhay Tech Solutions · Pune",
+      "copy": "Document information extraction and a deep-learning resume parser, from OCR to served JSON.",
+      "tags": [
+        "OCR",
+        "NER",
+        "RASA",
+        "LSTM"
+      ]
+    },
+    {
+      "period": "2019",
+      "role": "Data Science and AI Researcher",
+      "company": "Fabelizer · Pune",
+      "copy": "Speech-to-text datasets in several languages, DeepSpeech and Tacotron training, Mask R-CNN and a RASA chatbot.",
+      "tags": [
+        "Speech",
+        "Mask R-CNN",
+        "RASA"
+      ]
+    },
+    {
+      "period": "2017 - 2018",
+      "role": "Research Intern",
+      "company": "Indian Institute of Science · Bengaluru",
+      "copy": "Multispectral UAV and satellite imagery, ground truth from scratch, custom semantic segmentation.",
+      "tags": [
+        "Deep learning",
+        "Segmentation",
+        "Research"
+      ]
+    }
   ],
   "education": [
-    { "title": "M.Tech, VLSI and Embedded Systems", "where": "Nitte Meenakshi Institute of Technology, Bengaluru", "year": "2018" },
-    { "title": "B.E., Electronics and Telecommunication", "where": "International Institute of Information Technology, Pune University", "year": "2016" },
-    { "title": "PG Diploma, Machine Learning and AI", "where": "IIIT Bangalore", "year": "2019" },
-    { "title": "Data Science for Business Decision Making", "where": "IIM Kozhikode", "year": "2022" }
+    {
+      "title": "M.Tech, VLSI and Embedded Systems",
+      "where": "Nitte Meenakshi Institute of Technology, Bengaluru",
+      "year": "2018"
+    },
+    {
+      "title": "B.E., Electronics and Telecommunication",
+      "where": "International Institute of Information Technology, Pune University",
+      "year": "2016"
+    },
+    {
+      "title": "PG Diploma, Machine Learning and AI",
+      "where": "IIIT Bangalore",
+      "year": "2019"
+    },
+    {
+      "title": "Data Science for Business Decision Making",
+      "where": "IIM Kozhikode",
+      "year": "2022"
+    }
+  ],
+  "standards": [
+    {
+      "title": "Tests and strict typing",
+      "text": "pytest, ruff and strict mypy; one make target runs exactly what CI runs."
+    },
+    {
+      "title": "Gated CI",
+      "text": "Work lands on a branch and reaches main only when every check is green."
+    },
+    {
+      "title": "Evals, not vibes",
+      "text": "Where a model is involved, a scored eval set and a baseline gate decide whether a change ships."
+    },
+    {
+      "title": "Decisions written down",
+      "text": "Architecture decision records explain why each tool was chosen over the alternatives."
+    },
+    {
+      "title": "Agent-ready",
+      "text": "A CLAUDE.md with commands, rules and a definition of done, so coding agents can work in the repo safely."
+    },
+    {
+      "title": "A case study",
+      "text": "A public page with the architecture, results and what did not work."
+    }
+  ],
+  "marquee": [
+    "Forecasting",
+    "LangGraph",
+    "RAG",
+    "PySpark",
+    "Databricks",
+    "MLflow",
+    "Vision-language models",
+    "Airflow",
+    "vLLM",
+    "Azure",
+    "Evals",
+    "Docker",
+    "Kubernetes",
+    "LightGBM",
+    "pydantic"
   ]
 }
