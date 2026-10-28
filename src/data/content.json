@@ -29,8 +29,8 @@
       "label": "People led on the Unilever programme"
     },
     {
-      "value": "9",
-      "label": "Case studies from industry and research"
+      "value": "8",
+      "label": "Projects delivered in industry and research"
     }
   ],
   "capabilities": [
@@ -205,6 +205,20 @@
         "MLflow"
       ],
       "repo": "https://github.com/yogesh660/demand-forecast-pipeline"
+    },
+    {
+      "title": "Binary-classification-of-audio",
+      "eyebrow": "AUDIO · DEEP LEARNING",
+      "text": "Sudden-sound (gunshot) detection: a CNN on MFCC features trained on UrbanSound8K, served by a Flask API that takes an audio or video URL, packaged as a Docker image.",
+      "status": "Done",
+      "stack": [
+        "TensorFlow",
+        "CNN",
+        "Librosa",
+        "Flask",
+        "Docker"
+      ],
+      "repo": "https://github.com/yogesh660/Binary-classification-of-audio"
     }
   ],
   "work": [
@@ -392,28 +406,6 @@
         "Pix4D",
         "QGIS"
       ]
-    },
-    {
-      "slug": "sound-detection",
-      "title": "Sudden-sound detection service",
-      "meta": "Independent project",
-      "role": "Independent project",
-      "areas": [
-        "Engineering"
-      ],
-      "text": "Detect sudden loud events such as gunshots in audio or video, exposed as a service another system can call with a media URL.",
-      "points": [
-        "Relabelled UrbanSound8K (8,732 clips) for binary classification.",
-        "Trained a CNN on MFCC features in TensorFlow.",
-        "Wrapped it in a Flask API and packaged it as a Docker image."
-      ],
-      "tags": [
-        "TensorFlow",
-        "CNN",
-        "Librosa",
-        "Docker"
-      ],
-      "link": "https://github.com/yogesh660/Binary-classification-of-audio"
     }
   ],
   "roles": [
