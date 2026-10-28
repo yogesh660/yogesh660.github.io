@@ -12,8 +12,8 @@ Plain HTML, CSS and a little JavaScript, no framework and no npm install. All te
 `/`, `/work/`, `/work/<slug>/`, `/projects/`, `/about/` and `404.html`.
 
 ```
-src/data/content.json   every word on the site: profile, projects, case studies, roles
-src/pages/              layout.html wraps home, work, case (one per case study), projects, about, 404
+src/data/content.json   every word on the site: profile, work projects, open-source projects, roles
+src/pages/              layout.html wraps home, work, case (one per work project), projects, about, 404
 src/site.css            layout and theme (desktop, tablet, phone)
 src/site.js             menu, reveals, counters, filters, parallax; pages work without it
 public/                 copied as is: portrait, CMS page

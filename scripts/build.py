@@ -118,7 +118,7 @@ def project_links(p: dict) -> str:
         links.append(
             f'<a class="button light small" href="{e(p["case_study"])}">{icon("doc")} Case study</a>'
         )
-    label = "Code" if p.get("case_study") else "Roadmap"
+    label = "Roadmap" if p["status"] == "Planned" else "Code"
     links.append(
         f'<a class="button ghost small" href="{e(p["repo"])}"{external(p["repo"])}>'
         f'{icon("github")} {label}</a>'
@@ -158,7 +158,7 @@ def case_card(w: dict, n: int) -> str:
         f'<div class="row"><span class="num">{n:02d}</span><small>{e(w["meta"])}</small></div>'
         f'<h3 style="view-transition-name: case-{e(w["slug"])}">{e(w["title"])}</h3>'
         f'<p>{e(w["text"])}</p><div class="chips">{chips(w["tags"][:4])}</div>'
-        f'<span class="more">Read the case study {icon("next")}</span></a>'
+        f'<span class="more">View project {icon("next")}</span></a>'
     )
 
 
@@ -233,7 +233,8 @@ def build(content: dict, version: str) -> dict[str, str]:
         content["profile"], content["about"], content["work"], content["projects"],
     )
     live = [p for p in projects if p.get("case_study")]
-    planned = [p for p in projects if not p.get("case_study")]
+    planned = [p for p in projects if p["status"] == "Planned"]
+    earlier = [p for p in projects if not p.get("case_study") and p["status"] != "Planned"]
 
     shared = {
         **{k: e(v) for k, v in profile.items()},
@@ -244,6 +245,7 @@ def build(content: dict, version: str) -> dict[str, str]:
         "work_count": str(len(work)),
         "projects_live": "".join(project_live(p) for p in live),
         "projects_planned": "".join(project_planned(p) for p in planned),
+        "projects_earlier": "".join(project_planned(p) for p in earlier),
         "year": str(dt.date.today().year),
         "version": version,
     }
@@ -268,11 +270,11 @@ def build(content: dict, version: str) -> dict[str, str]:
         ),
         "work/index.html": page(
             "work.html", "work", f"Work · {name}",
-            f"{len(work)} case studies from industry and research by {name}.",
+            f"{len(work)} projects {name} delivered in industry and research.",
             filters=filters(work), work_all="".join(case_card(w, n) for n, w in numbered),
         ),
         "projects/index.html": page(
-            "projects.html", "projects", f"Projects · {name}",
+            "projects.html", "projects", f"Open source · {name}",
             f"Open-source AI systems built end to end by {name}.",
             standards=standards(content["standards"]),
         ),
