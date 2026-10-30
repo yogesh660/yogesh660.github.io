@@ -544,5 +544,69 @@
     "Kubernetes",
     "LightGBM",
     "pydantic"
+  ],
+  "hubs": [
+    {
+      "key": "learn",
+      "title": "Learn",
+      "eyebrow": "Learn hub · ml-model-zoo",
+      "headline": "Learn ML by doing.",
+      "text": "A free, open learning hub I build and maintain: every algorithm explained in plain words, derived properly and running live in the browser, from statistics to transformers.",
+      "stats": [
+        {
+          "value": "111",
+          "label": "Live lessons"
+        },
+        {
+          "value": "11",
+          "label": "Learning paths"
+        },
+        {
+          "value": "50",
+          "label": "Models with labs"
+        }
+      ],
+      "chips": [
+        "Statistics",
+        "Machine learning",
+        "Deep learning",
+        "NLP",
+        "Vision",
+        "AI"
+      ],
+      "url": "/ml-model-zoo/",
+      "cta": "Open the Learn hub",
+      "repo": "https://github.com/yogesh660/ml-model-zoo"
+    },
+    {
+      "key": "play",
+      "title": "Play",
+      "eyebrow": "Play · featured-games",
+      "headline": "Built to be played.",
+      "text": "Browser games made from scratch: a drive through the Western Ghats, an FPV drone simulator, an arcade shooter and a circuit puzzle. No installs, no accounts, keyboard or touch.",
+      "stats": [
+        {
+          "value": "4",
+          "label": "Playable games"
+        },
+        {
+          "value": "2",
+          "label": "In 3D (Three.js)"
+        },
+        {
+          "value": "0",
+          "label": "Installs needed"
+        }
+      ],
+      "chips": [
+        "Three.js",
+        "Canvas 2D",
+        "Web Audio",
+        "Physics"
+      ],
+      "url": "/featured-games/",
+      "cta": "Open the arcade",
+      "repo": "https://github.com/yogesh660/featured-games"
+    }
   ]
 }
