@@ -7,7 +7,9 @@ Standard library only, so CI needs nothing but Python.
     python3 scripts/build.py            # writes dist/
     python3 -m http.server -d dist      # http://localhost:8000
 
-Pages: / , /work/ , /work/<slug>/ , /projects/ , /about/ , /404.html
+Pages: / , /work/ (industry + open source), /work/<slug>/ , /about/ , /404.html
+Redirects: /projects/ -> /work/#open-source, /learn/ -> /ml-model-zoo/, /play/ -> /featured-games/
+Learn (/ml-model-zoo/) and Play (/featured-games/) are their own repos sharing this site's nav.
 """
 
 from __future__ import annotations
@@ -212,6 +214,77 @@ def pager_link(w: dict | None, rel: str) -> str:
     )
 
 
+# ---------- Learn / Play cards (home) ----------
+
+
+def learn_art() -> str:
+    """A small network whose edges carry signals left to right, like a forward pass."""
+    layers = [[60, 120, 180], [40, 95, 150, 205], [70, 130, 190], [100, 160]]
+    xs = [70, 210, 350, 470]
+    edges, nodes, k = [], [], 0
+    for li in range(len(layers) - 1):
+        for y1 in layers[li]:
+            for y2 in layers[li + 1]:
+                d = f"M{xs[li]} {y1} L{xs[li + 1]} {y2}"
+                edges.append(f'<path class="edge" d="{d}"/>')
+                if (k * 7) % 5 < 2:  # a few lit paths, not all of them
+                    edges.append(
+                        f'<path class="signal" d="{d}" pathLength="100" style="--k:{k % 9}"/>'
+                    )
+                k += 1
+    for li, ys in enumerate(layers):
+        for j, y in enumerate(ys):
+            nodes.append(f'<circle cx="{xs[li]}" cy="{y}" r="7" style="--k:{li * 2 + j}"/>')
+    return (
+        '<svg class="net" viewBox="0 0 540 245" aria-hidden="true">'
+        f'<g class="edges">{"".join(edges)}</g><g class="nodes">{"".join(nodes)}</g></svg>'
+    )
+
+
+def play_art() -> str:
+    """A synthwave floor rolling towards you, a sun on the horizon and the pad floating."""
+    return (
+        '<div class="arcade" aria-hidden="true"><i class="sun"></i><i class="floor"></i>'
+        f'<span class="pad">{icon("gamepad")}</span></div>'
+    )
+
+
+def hub_card(h: dict) -> str:
+    art = learn_art() if h["key"] == "learn" else play_art()
+    stats_html = "".join(
+        f'<div><strong>{e(s["value"])}</strong><span>{e(s["label"])}</span></div>' for s in h["stats"]
+    )
+    return (
+        f'<article class="hub hub-{e(h["key"])} spot reveal">'
+        f'<a class="hub-art" href="{e(h["url"])}" tabindex="-1" aria-hidden="true">{art}'
+        f'<span class="hub-word">{e(h["title"])}</span></a>'
+        f'<div class="body"><small>{e(h["eyebrow"])}</small>'
+        f'<h3><a href="{e(h["url"])}">{e(h["headline"])}</a></h3><p>{e(h["text"])}</p>'
+        f'<div class="hub-stats">{stats_html}</div>'
+        f'<div class="chips">{chips(h["chips"])}</div>'
+        f'<div class="links"><a class="button light small" href="{e(h["url"])}">{e(h["cta"])} {icon("arrow")}</a>'
+        f'<a class="button ghost small" href="{e(h["repo"])}"{external(h["repo"])}>{icon("github")} Code</a>'
+        "</div></div></article>"
+    )
+
+
+def redirect(target: str, keep_hash: bool = False, fallback_hash: str = "") -> str:
+    """GitHub Pages has no server redirects; this stub forwards old and short URLs."""
+    js = (
+        f"location.replace('{target}' + (location.hash || '{fallback_hash}'))"
+        if keep_hash else f"location.replace('{target}{fallback_hash}')"
+    )
+    href = target + fallback_hash
+    return (
+        '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+        f'<title>Moved</title><link rel="canonical" href="{href}">'
+        f'<meta http-equiv="refresh" content="0; url={href}">'
+        '<meta name="robots" content="noindex"><style>html{background:#070709;color:#9a9aa5;'
+        'font:14px system-ui}a{color:#b3abff}body{padding:40px}</style>'
+        f'<script>{js}</script></head><body><a href="{href}">This page moved: continue</a></body></html>\n'
+    )
+
+
 # ---------- pages ----------
 
 
@@ -243,6 +316,8 @@ def build(content: dict, version: str) -> dict[str, str]:
         "about_body": "".join(f'<p class="copy">{e(p)}</p>' for p in about["body"]),
         "stats": stats(content["stats"]),
         "work_count": str(len(work)),
+        "live_count": str(len(live)),
+        "planned_count": str(len(planned)),
         "projects_live": "".join(project_live(p) for p in live),
         "projects_planned": "".join(project_planned(p) for p in planned),
         "projects_earlier": "".join(project_planned(p) for p in earlier),
@@ -264,20 +339,20 @@ def build(content: dict, version: str) -> dict[str, str]:
             "home.html", "home", f"{name} · {title}", f"{name}, {title}. {profile['summary']}",
             marquee=marquee(content["marquee"]),
             work_featured="".join(case_card(w, n) for n, w in numbered if w.get("featured")),
-            planned_count=str(len(planned)),
+            hubs="".join(hub_card(h) for h in content["hubs"]),
             planned_names=e(", ".join(p["title"] for p in planned)),
             journey=journey(content["roles"]),
         ),
         "work/index.html": page(
             "work.html", "work", f"Work · {name}",
-            f"{len(work)} projects {name} delivered in industry and research.",
+            f"{len(work)} projects {name} delivered in industry and research, "
+            f"and the AI systems he builds in the open.",
             filters=filters(work), work_all="".join(case_card(w, n) for n, w in numbered),
-        ),
-        "projects/index.html": page(
-            "projects.html", "projects", f"Open source · {name}",
-            f"Open-source AI systems built end to end by {name}.",
             standards=standards(content["standards"]),
         ),
+        "projects/index.html": redirect("/work/", keep_hash=True, fallback_hash="#open-source"),
+        "learn/index.html": redirect("/ml-model-zoo/"),
+        "play/index.html": redirect("/featured-games/"),
         "about/index.html": page(
             "about.html", "about", f"About · {name}", about["lead"],
             capabilities=capabilities(content["capabilities"]),

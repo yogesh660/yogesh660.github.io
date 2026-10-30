@@ -8,7 +8,7 @@
     <p class="focus rise" style="--d:5">{{focus}}</p>
     <div class="actions rise" style="--d:6">
       <a class="button light" href="/work/">See my work {{i:arrow}}</a>
-      <a class="button ghost" href="/projects/">Open source</a>
+      <a class="button ghost" href="/work/#open-source">Open source</a>
     </div>
   </div>
 
@@ -56,18 +56,28 @@
 <section class="section">
   <div class="head reveal">
     <div><span class="tag">03 / Open source</span><h2>Built in the open.</h2></div>
-    <a class="text-link" href="/projects/">All open-source projects {{i:arrow}}</a>
+    <a class="text-link" href="/work/#open-source">All open-source projects {{i:arrow}}</a>
   </div>
   <div class="featured">{{projects_live}}</div>
-  <a class="roadmap-strip reveal" href="/projects/#roadmap">
+  <a class="roadmap-strip reveal" href="/work/#roadmap">
     <span><b>{{planned_count}} more on the roadmap</b> {{planned_names}}</span>{{i:arrow}}
   </a>
 </section>
 
-<section class="section band">
+<section class="section band hubs-band">
   <div class="inner">
     <div class="head reveal">
-      <div><span class="tag">04 / Experience</span><h2>The journey so far.</h2></div>
+      <div><span class="tag">04 / Learn &amp; play</span><h2>Beyond the day job.</h2></div>
+      <p>What I build for fun and to teach: an open ML course with live labs, and games written from scratch.</p>
+    </div>
+    <div class="hubs">{{hubs}}</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="inner">
+    <div class="head reveal">
+      <div><span class="tag">05 / Experience</span><h2>The journey so far.</h2></div>
       <a class="text-link" href="/about/#experience">Full timeline {{i:arrow}}</a>
     </div>
     <ol class="journey">{{journey}}</ol>

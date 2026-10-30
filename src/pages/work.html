@@ -1,11 +1,49 @@
 <header class="page-head">
-  <span class="tag rise" style="--d:1">Work · {{work_count}} projects</span>
+  <span class="tag rise" style="--d:1">Work · {{work_count}} projects · {{live_count}} open source</span>
   <h1 class="rise" style="--d:2">Built for impact.</h1>
-  <p class="lede rise" style="--d:3">Projects I delivered at NielsenIQ, Saama (for Unilever), IVL Global, Abhay Tech and IISc: what was asked, what I built, and how it was checked. Open any project for the details.</p>
-  <div class="filters rise" style="--d:4" role="group" aria-label="Filter projects">{{filters}}</div>
+  <p class="lede rise" style="--d:3">Projects I delivered at NielsenIQ, Saama (for Unilever), IVL Global, Abhay Tech and IISc: what was asked, what I built, and how it was checked. Further down, the systems I build in the open.</p>
+  <div class="jump rise" style="--d:4">
+    <a href="#industry">{{i:leadership}} In industry <b>{{work_count}}</b></a>
+    <a href="#open-source">{{i:github}} Open source <b>{{live_count}}</b></a>
+    <a href="#roadmap">{{i:forecasting}} On the roadmap <b>{{planned_count}}</b></a>
+  </div>
 </header>
 
-<section class="section tight">
+<section class="section tight" id="industry">
+  <div class="filters reveal" role="group" aria-label="Filter projects">{{filters}}</div>
   <div class="work-grid" id="work-grid">{{work_all}}</div>
   <p class="empty" id="empty" hidden>Nothing in this area yet.</p>
+</section>
+
+<section class="section band" id="open-source">
+  <div class="inner">
+    <div class="head reveal">
+      <div><span class="tag">Open source · on GitHub</span><h2>Built in the open.</h2></div>
+      <p>End-to-end systems I build in my own time, in public. Each one has to run, be measured and be explained: no notebook demos.</p>
+    </div>
+    <div class="featured">{{projects_live}}</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="head reveal">
+    <div><span class="tag">Every repo ships with</span><h2>The same standard.</h2></div>
+    <p>So a reviewer, or a coding agent, can pick up any of them and trust what it does.</p>
+  </div>
+  <div class="standards">{{standards}}</div>
+</section>
+
+<section class="section tight" id="roadmap">
+  <div class="head reveal">
+    <div><span class="tag">On the roadmap</span><h2>Coming next.</h2></div>
+    <p>Designed and planned in each repo's roadmap; code lands milestone by milestone.</p>
+  </div>
+  <div class="planned">{{projects_planned}}</div>
+</section>
+
+<section class="section tight">
+  <div class="head reveal">
+    <div><span class="tag">Earlier on GitHub</span><h2>Before this.</h2></div>
+  </div>
+  <div class="planned">{{projects_earlier}}</div>
 </section>

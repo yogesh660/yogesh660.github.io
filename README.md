@@ -9,11 +9,32 @@ their own repos and are served next to this site, for example
 
 Plain HTML, CSS and a little JavaScript, no framework and no npm install. All text lives in
 `src/data/content.json`; `scripts/build.py` fills the templates in `src/pages/` with it and writes `dist/`:
-`/`, `/work/`, `/work/<slug>/`, `/projects/`, `/about/` and `404.html`.
+`/`, `/work/` (industry projects, then open source), `/work/<slug>/`, `/about/` and `404.html`, plus small
+redirect pages for `/projects/` (→ `/work/#open-source`), `/learn/` and `/play/`.
+
+## One site, three repos
+
+The nav is the same everywhere: **Work · Learn · Play · About · Contact**.
+
+| Section | Served at | Repo |
+|---|---|---|
+| Home, Work, About | `/`, `/work/`, `/about/` | this one |
+| Learn | `/ml-model-zoo/` | [ml-model-zoo](https://github.com/yogesh660/ml-model-zoo) |
+| Play | `/featured-games/` | [featured-games](https://github.com/yogesh660/featured-games) |
+
+Learn and Play keep a verbatim copy of `src/site.css` and `src/site.js` in their `assets/` folder, so the
+nav, buttons, reveals and page transitions are identical. After changing either file here, copy it there:
+
+```bash
+cp src/site.css src/site.js ../ml-model-zoo/assets/ && cp src/site.css src/site.js ../featured-games/assets/
+```
+
+All links between the three are root-relative (`/work/`, `/ml-model-zoo/`), so they stay same-origin and the
+cross-page transitions work under any domain.
 
 ```
-src/data/content.json   every word on the site: profile, work projects, open-source projects, roles
-src/pages/              layout.html wraps home, work, case (one per work project), projects, about, 404
+src/data/content.json   every word on the site: profile, work projects, open-source projects, Learn/Play cards, roles
+src/pages/              layout.html wraps home, work, case (one per work project), about, 404
 src/site.css            layout and theme (desktop, tablet, phone)
 src/site.js             menu, reveals, counters, filters, parallax; pages work without it
 public/                 copied as is: portrait, CMS page

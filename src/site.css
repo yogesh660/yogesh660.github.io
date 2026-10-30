@@ -82,6 +82,11 @@ nav {
 nav.scrolled, nav.open { height: 62px; background: rgba(7, 7, 9, .8); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border-color: var(--line); }
 .mark { font-size: 21px; font-weight: 700; letter-spacing: -1px; }
 .mark span { color: var(--violet); }
+/* "YA. / Learn" and "YA. / Play" on the hubs, which share this stylesheet */
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-sub { font: 500 12px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
+.brand-sub::before { content: "/"; margin-right: 12px; color: var(--dim); }
+.brand-sub:hover { color: #fff; }
 .navlinks { display: flex; align-items: center; gap: clamp(18px, 2.4vw, 34px); font: 500 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .navlinks > a { position: relative; color: #b8b8c0; transition: color .2s; padding: 6px 0; }
 .navlinks > a:not(.pill)::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--violet); transform: scaleX(0); transform-origin: right; transition: transform .35s var(--ease); }
@@ -288,6 +293,55 @@ h2 { font-size: clamp(36px, 5.2vw, 74px); line-height: 1.02; letter-spacing: -.0
 .standard h3 { font-size: 19px; font-weight: 500; letter-spacing: -.02em; margin-bottom: 8px; }
 .standard p { color: var(--muted); font-size: 14px; line-height: 1.65; }
 
+/* /work/ jump links */
+.jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 34px; }
+.jump a { display: inline-flex; align-items: center; gap: 9px; min-height: 42px; padding: 0 16px; border-radius: 99px; border: 1px solid var(--line-2); font: 500 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--soft); transition: border-color .25s, color .25s, background .25s, transform .3s var(--ease); }
+.jump a b { font-weight: 400; color: var(--dim); }
+.jump a .i { color: var(--violet-2); }
+.jump a:hover { color: #fff; border-color: #8c7cff88; background: #8c7cff12; transform: translateY(-2px); }
+#industry .filters { margin: 0 0 22px; }
+
+/* home: Learn and Play cards */
+.hubs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.hub { display: flex; flex-direction: column; border-radius: var(--radius); border: 1px solid var(--line); background: var(--panel); overflow: hidden; transition: border-color .3s, translate .4s var(--ease), opacity .8s var(--ease), transform .8s var(--ease); }
+.hub:hover { border-color: #8c7cff66; translate: 0 -5px; }
+.hub-art { position: relative; display: block; aspect-ratio: 16 / 8.2; overflow: hidden; border-bottom: 1px solid var(--line); isolation: isolate; }
+.hub-word { position: absolute; z-index: 2; left: 22px; bottom: 10px; font-size: clamp(54px, 6.4vw, 92px); line-height: .9; font-weight: 700; letter-spacing: -.07em; color: #ffffff14; transition: color .5s, transform .6s var(--ease); pointer-events: none; }
+.hub:hover .hub-word { color: #ffffff22; transform: translateX(6px); }
+.hub .body { display: flex; flex-direction: column; gap: 14px; padding: 26px 28px 28px; flex: 1; }
+.hub small { font-size: 11.5px; color: var(--violet-2); }
+.hub h3 { font-size: clamp(26px, 2.6vw, 36px); font-weight: 500; letter-spacing: -.04em; line-height: 1.1; }
+.hub p { color: var(--muted); font-size: 14.5px; line-height: 1.7; }
+.hub-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 6px 0 4px; }
+.hub-stats div { border-top: 1px solid var(--line); padding-top: 12px; }
+.hub-stats strong { display: block; font-size: clamp(26px, 2.6vw, 34px); font-weight: 400; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+.hub-stats span { display: block; margin-top: 6px; font: 400 11px var(--mono); letter-spacing: .04em; color: var(--muted); }
+.hub .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 8px; }
+
+/* Learn artwork: a network with signals running through it */
+.hub-learn .hub-art { background: radial-gradient(circle at 60% 40%, #2a2160 0, #121225 48%, #0b0b10 82%); }
+.net { position: absolute; inset: 8% 4% 6% 14%; width: 82%; height: 86%; transition: transform .8s var(--ease); }
+.hub-learn:hover .net { transform: scale(1.04); }
+.net .edge { fill: none; stroke: #ffffff14; stroke-width: 1; }
+.net .signal { fill: none; stroke: var(--cyan); stroke-width: 1.6; stroke-linecap: round; stroke-dasharray: 14 86; stroke-dashoffset: 100; opacity: .85; filter: drop-shadow(0 0 4px var(--cyan)); animation: signal 2.8s linear infinite; animation-delay: calc(var(--k) * -310ms); }
+@keyframes signal { to { stroke-dashoffset: 0; } }
+.net circle { fill: #14142a; stroke: var(--violet); stroke-width: 1.5; transform-box: fill-box; transform-origin: center; animation: node 2.8s ease-in-out infinite; animation-delay: calc(var(--k) * 180ms); }
+@keyframes node { 50% { fill: #8c7cff; transform: scale(1.18); } }
+
+/* Play artwork: synthwave floor, sun and a floating pad */
+.hub-play .hub-art { background: linear-gradient(#0b0b14 0, #1a1036 52%, #0b0b10 52.2%); }
+.arcade { position: absolute; inset: 0; perspective: 260px; overflow: hidden; }
+.arcade .sun { position: absolute; left: 50%; bottom: 48%; width: 24%; aspect-ratio: 1; translate: -50% 0; border-radius: 50%; background: linear-gradient(#ffd27a, #ff6fae 60%, #8c7cff); opacity: .85; filter: drop-shadow(0 0 34px #ff6fae66);
+  --stripes: linear-gradient(#000 0 56%, transparent 56% 60%, #000 60% 68%, transparent 68% 73%, #000 73% 80%, transparent 80% 86%, #000 86% 91%, transparent 91%);
+  -webkit-mask-image: var(--stripes); mask-image: var(--stripes); }
+.arcade .floor { position: absolute; left: -50%; right: -50%; top: 52%; height: 120%; transform-origin: top; transform: rotateX(62deg);
+  background-image: linear-gradient(#8c7cff66 1.5px, transparent 1.5px), linear-gradient(90deg, #56d9ff55 1.5px, transparent 1.5px);
+  background-size: 48px 48px; animation: floor 1.6s linear infinite; -webkit-mask-image: linear-gradient(transparent, #000 30%); mask-image: linear-gradient(transparent, #000 30%); }
+@keyframes floor { to { background-position: 0 48px; } }
+.arcade .pad { position: absolute; z-index: 1; right: 9%; top: 14%; color: #b3abff; filter: drop-shadow(0 0 28px #8c7cffaa); animation: float 5s ease-in-out infinite; }
+.arcade .pad .i { width: clamp(84px, 9vw, 130px); height: auto; aspect-ratio: 1; stroke-width: 1; }
+.hub-play:hover .floor { animation-duration: .7s; }
+
 /* home journey strip */
 .journey { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); border-top: 1px solid var(--line); }
 .journey li { position: relative; padding: 26px 18px 0 0; display: flex; flex-direction: column; gap: 6px; }
@@ -327,6 +381,7 @@ h2 { font-size: clamp(36px, 5.2vw, 74px); line-height: 1.02; letter-spacing: -.0
 .play-card h2 { font-size: clamp(34px, 4.6vw, 64px); margin: 0 0 20px; }
 .play-card h2 em { font-style: normal; color: #8f86e6; }
 .play-card p { max-width: 520px; color: var(--muted); }
+.play-card .actions { margin-top: 28px; }
 .pad { color: #6e65cf; filter: drop-shadow(0 0 50px #6255d866); animation: float 6s ease-in-out infinite; }
 .pad .i { width: clamp(150px, 20vw, 260px); height: auto; aspect-ratio: 1; stroke-width: .7; }
 @keyframes float { 50% { transform: translateY(-12px) rotate(-3deg); } }
@@ -393,7 +448,9 @@ footer { padding: 26px var(--pad-x); display: flex; justify-content: space-betwe
   .intro-grid, .about-grid { grid-template-columns: 1fr; gap: 34px; }
   .stats { gap: 14px; }
   .stats span { font-size: 11px; }
-  .work-grid, .featured, .planned, .edu, .pager { grid-template-columns: 1fr; }
+  .work-grid, .featured, .planned, .edu, .pager, .hubs { grid-template-columns: 1fr; }
+  .hub .body { padding: 22px; }
+  .jump a { flex: 1 1 auto; justify-content: center; }
   .work-grid.highlight .case-card { min-height: 0; }
   .featured-card .body, .project, .case-card { padding: 22px; }
   .standards { grid-template-columns: 1fr; }
